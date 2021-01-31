@@ -4,6 +4,12 @@ namespace RtsGame.Combat
 {
     public class Damageable : MonoBehaviour
     {
-        public int Health { get; set; }
+        [SerializeField] private int health;
+
+        public int Health
+        {
+            get => health;
+            set => health = value;
+        }
     }
 }

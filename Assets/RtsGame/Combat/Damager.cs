@@ -4,7 +4,13 @@ namespace RtsGame.Combat
 {
     public class Damager : MonoBehaviour
     {
-        public int AttackDamage { get; set; }
+        [SerializeField] private int attackDamage;
+
+        public int AttackDamage
+        {
+            get => attackDamage;
+            set => attackDamage = value;
+        }
 
         public void Attack(Damageable damageable)
         {
