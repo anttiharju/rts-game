@@ -7,7 +7,7 @@ namespace RtsGame.Tests
     [TestFixture]
     public class DamageSystemTests
     {
-        [Test]
+        [Test, Description("Test that damageable loses health amount equal to damager's attack damage")]
         public static void TestTakingDamage()
         {
             var damageableGo = new GameObject();
@@ -21,8 +21,20 @@ namespace RtsGame.Tests
             int healthBefore = damageable.Health;
             damager.Attack(damageable);
             int healthAfter = damageable.Health;
-            
+         
             Assert.AreEqual(healthBefore - damager.AttackDamage, healthAfter);
+        }
+
+        [Test, Description("Test that damageable fires an event when health drops to 0")]
+        public static void TestDying()
+        {
+            var damageableGo = new GameObject();
+            var damageable = damageableGo.AddComponent<Damageable>();
+            bool wasCalled = false;
+            damageable.Death += () => wasCalled = true;
+            damageable.Health = 100;
+            damageable.Health = 0;
+            Assert.IsTrue(wasCalled);
         }
     }
 }

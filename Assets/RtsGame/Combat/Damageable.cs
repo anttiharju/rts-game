@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace RtsGame.Combat
 {
@@ -9,7 +10,13 @@ namespace RtsGame.Combat
         public int Health
         {
             get => health;
-            set => health = value;
+            set
+            {
+                health = value;
+                Death?.Invoke();
+            }
         }
+
+        public event Action Death;
     }
 }
