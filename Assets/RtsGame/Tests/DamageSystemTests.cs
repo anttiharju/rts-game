@@ -8,7 +8,7 @@ namespace RtsGame.Tests
     public class DamageSystemTests
     {
         [Test, Description("Test that damageable loses health amount equal to damager's attack damage")]
-        public static void TestTakingDamage()
+        public static void TakingDamage()
         {
             var damageableGo = new GameObject();
             var damageable = damageableGo.AddComponent<Damageable>();
@@ -26,7 +26,7 @@ namespace RtsGame.Tests
         }
 
         [Test, Description("Test that damageable fires an event when health drops to 0")]
-        public static void TestDying()
+        public static void Dying()
         {
             var damageableGo = new GameObject();
             var damageable = damageableGo.AddComponent<Damageable>();
