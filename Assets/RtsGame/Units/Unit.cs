@@ -24,12 +24,6 @@ namespace RtsGame.Units
             damageable.Damaged += unitAnimation.TakeDamage;
         }
 
-        [ContextMenu("Test taking damage")]
-        public void TestTakingDamage()
-        {
-            damageable.Health -= 1;
-        }
-
         public void DealDamage(Unit target)
         {
             damager.Attack(target.damageable);
