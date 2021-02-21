@@ -29,5 +29,10 @@ namespace RtsGame.Units
         {
             damageable.Health -= 1;
         }
+
+        public void DealDamage(Unit target)
+        {
+            damager.Attack(target.damageable);
+        }
     }
 }

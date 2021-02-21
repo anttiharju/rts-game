@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 namespace RtsGame.Combat
 {
     public class Damager
