@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace RtsGame.Combat
 {
-    public class Damageable : MonoBehaviour
+    public class Damageable
     {
-        [SerializeField] private int health;
+        private int health;
 
         public int Health
         {
@@ -33,6 +33,12 @@ namespace RtsGame.Combat
         }
 
         public event Action Death;
+
         public event Action Damaged;
+
+        public Damageable(int health)
+        {
+            this.health = health;
+        }
     }
 }
