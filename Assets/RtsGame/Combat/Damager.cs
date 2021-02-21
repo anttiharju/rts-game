@@ -2,19 +2,18 @@
 
 namespace RtsGame.Combat
 {
-    public class Damager : MonoBehaviour
+    public class Damager
     {
-        [SerializeField] private int attackDamage;
-
-        public int AttackDamage
-        {
-            get => attackDamage;
-            set => attackDamage = value;
-        }
+        public int AttackDamage { get; }
 
         public void Attack(Damageable damageable)
         {
             damageable.Health -= AttackDamage;
+        }
+
+        public Damager(int attackDamage)
+        {
+            AttackDamage = attackDamage;
         }
     }
 }

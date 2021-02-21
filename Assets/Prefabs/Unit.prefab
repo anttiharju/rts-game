@@ -12,11 +12,8 @@ GameObject:
   - component: {fileID: 1149786013554547709}
   - component: {fileID: 1149786013554547708}
   - component: {fileID: 1149786013554547707}
-  - component: {fileID: 1149786013554547706}
-  - component: {fileID: 1149786013554547705}
   - component: {fileID: 1149786013554547711}
   - component: {fileID: 3805325120497116621}
-  - component: {fileID: 6318007031722456093}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -98,32 +95,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1149786013554547706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149786013554547704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42c7840ffd1fc664ca35e2207448c8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
---- !u!114 &1149786013554547705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149786013554547704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86d7bbb91dd55b846b0b3d33d6533d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 1
 --- !u!95 &1149786013554547711
 Animator:
   serializedVersion: 3
@@ -155,18 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5c7ad8aa4738046905fca8aad60480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageable: {fileID: 1149786013554547706}
-  unitAnimation: {fileID: 6318007031722456093}
---- !u!114 &6318007031722456093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149786013554547704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2835b73207bd10742bf8efe1349d0385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   animator: {fileID: 1149786013554547711}
+  health: 100
+  damage: 10

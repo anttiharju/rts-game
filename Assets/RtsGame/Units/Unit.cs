@@ -5,11 +5,22 @@ namespace RtsGame.Units
 {
     public class Unit : MonoBehaviour
     {
-        [SerializeField] private Damageable damageable;
-        [SerializeField] private UnitAnimation unitAnimation;
+        #pragma warning disable 0649
+        [SerializeField] private Animator animator;
+        [SerializeField] private int health = 100;
+        [SerializeField] private int damage = 10;
+        #pragma warning restore 0649
 
-        private void Start()
+        private Damageable damageable;
+        private Damager damager;
+        private UnitAnimation unitAnimation;
+
+        private void Awake()
         {
+            damageable = new Damageable(health);
+            unitAnimation = new UnitAnimation(animator);
+            damager = new Damager(damage);
+            
             damageable.Damaged += unitAnimation.TakeDamage;
         }
 
