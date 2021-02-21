@@ -15,6 +15,17 @@ namespace RtsGame.Input
         {
             playerInput.actions["Click"].performed += ClickPerformed;
         }
+        
+        private void Update()
+        {
+            MousePositionUpdate();
+        }
+
+        private void MousePositionUpdate()
+        {
+            var mousePosition = playerInput.actions["Mouse Position"].ReadValue<Vector2>();
+            Debug.Log("Mouse Position: " + mousePosition.x + ", " + mousePosition.y);
+        }
 
         private void ClickPerformed(InputAction.CallbackContext obj)
         {
