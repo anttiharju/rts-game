@@ -1,4 +1,5 @@
-﻿using RtsGame.Combat;
+﻿using System;
+using RtsGame.Combat;
 using UnityEngine;
 
 namespace RtsGame.Units
@@ -14,6 +15,7 @@ namespace RtsGame.Units
         private Damageable damageable;
         private Damager damager;
         private UnitAnimation unitAnimation;
+        private IUnitTask task;
 
         private void Awake()
         {
@@ -25,6 +27,11 @@ namespace RtsGame.Units
             damageable.Death += Die;
         }
 
+        private void Update()
+        {
+            task?.Update(this);
+        }
+
         public void DealDamage(Unit target)
         {
             damager.Attack(target.damageable);
@@ -33,6 +40,17 @@ namespace RtsGame.Units
         private void Die()
         {
             Destroy(gameObject);
+        }
+
+        public void AddTask(IUnitTask task)
+        {
+            this.task = task;
+            task.Completed += ClearTask;
+        }
+
+        private void ClearTask()
+        {
+            task = null;
         }
     }
 }
