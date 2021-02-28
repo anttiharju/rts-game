@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RtsGame.Units;
 using UnityEngine;
@@ -7,31 +8,26 @@ namespace RtsGame.Input
 {
     public class RtsInput : MonoBehaviour
     {
-        [SerializeField] private List<Unit> selected;
-        [SerializeField] private Unit target;
-        [SerializeField] private PlayerInput playerInput;
+        public event Action<Unit> ClickedOnUnit;
         
+        [SerializeField] private PlayerInput playerInput;
+
+        private int layerMaskUnit;
+
         void Awake()
         {
             playerInput.actions["Click"].performed += ClickPerformed;
-        }
-        
-        private void Update()
-        {
-            MousePositionUpdate();
-        }
-
-        private void MousePositionUpdate()
-        {
-            var mousePosition = playerInput.actions["Mouse Position"].ReadValue<Vector2>();
-            Debug.Log("Mouse Position: " + mousePosition.x + ", " + mousePosition.y);
+            layerMaskUnit = 1 << LayerMask.NameToLayer("Unit");
         }
 
         private void ClickPerformed(InputAction.CallbackContext obj)
         {
-            foreach (var unit in selected)
+            var mousePosition = playerInput.actions["Mouse Position"].ReadValue<Vector2>();
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, 100, layerMaskUnit))
             {
-                unit.DealDamage(target);
+                var hitUnit = hitInfo.collider.gameObject.GetComponent<Unit>();
+                ClickedOnUnit?.Invoke(hitUnit);
             }
         }
     }
