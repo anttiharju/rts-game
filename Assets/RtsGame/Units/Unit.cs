@@ -22,11 +22,17 @@ namespace RtsGame.Units
             damager = new Damager(damage);
             
             damageable.Damaged += unitAnimation.TakeDamage;
+            damageable.Death += Die;
         }
 
         public void DealDamage(Unit target)
         {
             damager.Attack(target.damageable);
+        }
+
+        private void Die()
+        {
+            Destroy(gameObject);
         }
     }
 }
