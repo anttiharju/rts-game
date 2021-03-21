@@ -8,7 +8,8 @@ namespace RtsGame.Input
 {
     public class RtsInput : MonoBehaviour
     {
-        public event Action<Unit> ClickedOnUnit;
+        public event Action<Unit> ActionOnUnit;
+        public event Action<Unit> SelectOnUnit;
         
         [SerializeField] private PlayerInput playerInput;
 
@@ -16,19 +17,39 @@ namespace RtsGame.Input
 
         void Awake()
         {
-            playerInput.actions["Click"].performed += ClickPerformed;
+            playerInput.actions["Action"].performed += ActionPerformed;
+            playerInput.actions["Select"].performed += SelectPerformed;
             layerMaskUnit = 1 << LayerMask.NameToLayer("Unit");
         }
 
-        private void ClickPerformed(InputAction.CallbackContext obj)
+        private void ActionPerformed(InputAction.CallbackContext obj)
+        {
+            var clickedOn = GetClickedUnit();
+            if (clickedOn != null)
+            {
+                ActionOnUnit?.Invoke(clickedOn);
+            }
+        }
+
+        private void SelectPerformed(InputAction.CallbackContext obj)
+        {
+            var clickedOn = GetClickedUnit();
+            if (clickedOn != null)
+            {
+                SelectOnUnit?.Invoke(clickedOn);
+            }
+        }
+
+        private Unit GetClickedUnit()
         {
             var mousePosition = playerInput.actions["Mouse Position"].ReadValue<Vector2>();
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo, 100, layerMaskUnit))
             {
-                var hitUnit = hitInfo.collider.gameObject.GetComponent<Unit>();
-                ClickedOnUnit?.Invoke(hitUnit);
+                return hitInfo.collider.gameObject.GetComponent<Unit>();
             }
+
+            return null;
         }
     }
 }

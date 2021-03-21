@@ -16,12 +16,19 @@ namespace RtsGame.Command
 
         private void Awake()
         {
-            rtsInput.ClickedOnUnit += OnClickedOnUnit;
+            rtsInput.ActionOnUnit += OnActionOnUnit;
+            rtsInput.SelectOnUnit += OnSelectUnit;
         }
 
-        private void OnClickedOnUnit(Unit target)
+        private void OnActionOnUnit(Unit target)
         {
             commandExecutor.AddCommand(new AttackCommand(selected, target));
+        }
+
+        private void OnSelectUnit(Unit obj)
+        {
+            selected.Clear();
+            selected.Add(obj);
         }
     }
 }
