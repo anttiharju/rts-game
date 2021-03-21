@@ -2,7 +2,7 @@
 
 namespace RtsGame.Units
 {
-    public class AttackTask : IUnitTask, IDependsOnUnitAnimation
+    public class AttackTask : IUnitTask, IDependsOnUnitAnimator
     {
         private readonly Unit target;
 
@@ -27,7 +27,7 @@ namespace RtsGame.Units
 
         public event Action Completed;
         
-        public void SetUnitAnimation(UnitAnimator unitAnimator)
+        public void SetUnitAnimator(UnitAnimator unitAnimator)
         {
             this.unitAnimator = unitAnimator;
         }
