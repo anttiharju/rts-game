@@ -6,7 +6,7 @@ namespace RtsGame.Units
     {
         private readonly Unit target;
 
-        private UnitAnimation unitAnimation;
+        private UnitAnimator unitAnimator;
         
         public AttackTask(Unit target)
         {
@@ -21,15 +21,15 @@ namespace RtsGame.Units
         private void PerformAttack(Unit attacker)
         {
             attacker.DealDamage(target);
-            unitAnimation.Attack();
+            unitAnimator.Attack();
             Completed?.Invoke();
         }
 
         public event Action Completed;
         
-        public void SetUnitAnimation(UnitAnimation unitAnimation)
+        public void SetUnitAnimation(UnitAnimator unitAnimator)
         {
-            this.unitAnimation = unitAnimation;
+            this.unitAnimator = unitAnimator;
         }
     }
 }

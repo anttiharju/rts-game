@@ -2,13 +2,13 @@
 
 namespace RtsGame.Units
 {
-    public class UnitAnimation
+    public class UnitAnimator
     {
         private readonly Animator animator;
         private static readonly int TakeDamageHash = Animator.StringToHash("TakeDamage");
         private static readonly int AttackHash = Animator.StringToHash("Attack");
         
-        public UnitAnimation(Animator animator)
+        public UnitAnimator(Animator animator)
         {
             this.animator = animator;
         }
