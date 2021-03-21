@@ -14,16 +14,16 @@ namespace RtsGame.Units
 
         private Damageable damageable;
         private Damager damager;
-        private UnitAnimation unitAnimation;
+        private UnitAnimator unitAnimator;
         private IUnitTask task;
 
         private void Awake()
         {
             damageable = new Damageable(health);
-            unitAnimation = new UnitAnimation(animator);
+            unitAnimator = new UnitAnimator(animator);
             damager = new Damager(damage);
             
-            damageable.Damaged += unitAnimation.TakeDamage;
+            damageable.Damaged += unitAnimator.TakeDamage;
             damageable.Death += Die;
         }
 
@@ -47,7 +47,7 @@ namespace RtsGame.Units
             this.task = task;
             task.Completed += ClearTask;
             if (task is IDependsOnUnitAnimation dependsOnUnitAnimation) 
-                dependsOnUnitAnimation.SetUnitAnimation(unitAnimation);
+                dependsOnUnitAnimation.SetUnitAnimation(unitAnimator);
         }
 
         private void ClearTask()
