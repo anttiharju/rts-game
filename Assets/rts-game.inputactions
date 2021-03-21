@@ -6,7 +6,7 @@
             "id": "9f5ee9bf-3ff6-4153-8fef-9f56bcd0bd1d",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Move(Unused)",
                     "type": "Value",
                     "id": "6879e4fb-e064-4337-bb64-9135126ec8b7",
                     "expectedControlType": "Vector2",
@@ -14,18 +14,10 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Look",
+                    "name": "Look(Unused)",
                     "type": "Value",
                     "id": "9ab28190-0afe-4c6e-b165-ec843ba66c9b",
                     "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Click",
-                    "type": "Button",
-                    "id": "3d995c71-15cb-4250-8481-8f4187df09b2",
-                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -34,6 +26,22 @@
                     "type": "Value",
                     "id": "2545ad5f-d0e0-4fbb-90a4-534014f49b25",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "3d995c71-15cb-4250-8481-8f4187df09b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "32eeb3bb-3b66-42f7-9f83-3af27e8b6f6b",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -46,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -57,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -68,7 +76,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -79,7 +87,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -90,7 +98,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -101,7 +109,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -112,7 +120,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -123,7 +131,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -134,7 +142,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -145,7 +153,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -156,7 +164,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -167,7 +175,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Move",
+                    "action": "Move(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -178,7 +186,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Look",
+                    "action": "Look(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -189,7 +197,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;Touch",
-                    "action": "Look",
+                    "action": "Look(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -200,62 +208,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "886e731e-7071-4ae4-95c0-e61739dad6fd",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ee3d0cd2-254e-47a7-a8cb-bc94d9658c54",
-                    "path": "<Joystick>/trigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8255d333-5683-4943-a58a-ccb207ff1dce",
-                    "path": "<XRController>/{PrimaryAction}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "Click",
+                    "action": "Look(Unused)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -267,6 +220,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Mouse Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4998f73-b7e4-4f5a-ad00-7766be8c468a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
