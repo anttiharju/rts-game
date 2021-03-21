@@ -46,6 +46,8 @@ namespace RtsGame.Units
         {
             this.task = task;
             task.Completed += ClearTask;
+            if (task is IDependsOnUnitAnimation dependsOnUnitAnimation) 
+                dependsOnUnitAnimation.SetUnitAnimation(unitAnimation);
         }
 
         private void ClearTask()
