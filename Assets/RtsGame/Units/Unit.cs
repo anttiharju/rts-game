@@ -6,11 +6,12 @@ namespace RtsGame.Units
 {
     public class Unit : MonoBehaviour
     {
-        #pragma warning disable 0649
+        public Faction Faction => faction;
+        
         [SerializeField] private Animator animator;
         [SerializeField] private int health = 100;
         [SerializeField] private int damage = 10;
-        #pragma warning restore 0649
+        [SerializeField] private Faction faction;
 
         private Damageable damageable;
         private Damager damager;
