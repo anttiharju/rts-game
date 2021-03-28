@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using RtsGame.Combat;
 
-namespace RtsGame.Tests.EditorMode
+namespace RtsGame.Tests.Editor
 {
     [TestFixture]
     public class DamageSystemTests
