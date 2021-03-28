@@ -10,6 +10,7 @@ namespace RtsGame.Command
     /// </summary>
     public class CommandManager : MonoBehaviour
     {
+        [SerializeField] private Faction faction;
         [SerializeField] private List<Unit> selected;
         [SerializeField] private RtsInput rtsInput;
         [SerializeField] private CommandExecutor commandExecutor;
@@ -22,13 +23,17 @@ namespace RtsGame.Command
 
         private void OnActionOnUnit(Unit target)
         {
-            commandExecutor.AddCommand(new AttackCommand(selected, target));
+            if (target.Faction != faction)
+                commandExecutor.AddCommand(new AttackCommand(selected, target));
         }
 
-        private void OnSelectUnit(Unit obj)
+        private void OnSelectUnit(Unit unit)
         {
-            selected.Clear();
-            selected.Add(obj);
+            if (unit.Faction == faction)
+            {
+                selected.Clear();
+                selected.Add(unit);
+            }
         }
     }
 }
