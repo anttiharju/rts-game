@@ -188,12 +188,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7857863906987510247, guid: 1c9562e268ead2e4283105938cf57fa5,
-        type: 3}
-      propertyPath: faction
-      value: 
-      objectReference: {fileID: 11400000, guid: f7d46751b7d51b64bb0130f3998e734d,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c9562e268ead2e4283105938cf57fa5, type: 3}
 --- !u!1 &705507993
@@ -378,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6f3a9c16594d3bb56b58709c0c0ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faction: {fileID: 11400000, guid: 51712f15af935e1448c7658097822675, type: 2}
   selected: []
   rtsInput: {fileID: 723363011}
   commandExecutor: {fileID: 723363013}
@@ -460,12 +455,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2768353117929928887, guid: 5679e2e7752074343b3f8456b9948e39,
-        type: 3}
-      propertyPath: faction
-      value: 
-      objectReference: {fileID: 11400000, guid: 51712f15af935e1448c7658097822675,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5679e2e7752074343b3f8456b9948e39, type: 3}
 --- !u!1 &963194225
@@ -618,12 +607,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7857863906987510247, guid: 1c9562e268ead2e4283105938cf57fa5,
-        type: 3}
-      propertyPath: faction
-      value: 
-      objectReference: {fileID: 11400000, guid: f7d46751b7d51b64bb0130f3998e734d,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c9562e268ead2e4283105938cf57fa5, type: 3}
 --- !u!1001 &1343217793726495366
@@ -693,12 +676,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2768353117929928887, guid: 5679e2e7752074343b3f8456b9948e39,
-        type: 3}
-      propertyPath: faction
-      value: 
-      objectReference: {fileID: 11400000, guid: 51712f15af935e1448c7658097822675,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5679e2e7752074343b3f8456b9948e39, type: 3}
 --- !u!1001 &1609032656215779640
@@ -768,11 +745,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7857863906987510247, guid: 1c9562e268ead2e4283105938cf57fa5,
-        type: 3}
-      propertyPath: faction
-      value: 
-      objectReference: {fileID: 11400000, guid: f7d46751b7d51b64bb0130f3998e734d,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c9562e268ead2e4283105938cf57fa5, type: 3}
