@@ -6,8 +6,6 @@ namespace RtsGame.Units
 {
     public class Unit : MonoBehaviour
     {
-        public Faction Faction => faction;
-        
         [SerializeField] private Animator animator;
         [SerializeField] private int health = 100;
         [SerializeField] private int damage = 10;
@@ -18,12 +16,18 @@ namespace RtsGame.Units
         private UnitAnimator unitAnimator;
         private IUnitTask task;
 
+        public Faction Faction
+        {
+            get => faction;
+            set => faction = value;
+        }
+
         private void Awake()
         {
             damageable = new Damageable(health);
             unitAnimator = new UnitAnimator(animator);
             damager = new Damager(damage);
-            
+
             damageable.Damaged += unitAnimator.TakeDamage;
             damageable.Death += Die;
         }
@@ -47,7 +51,7 @@ namespace RtsGame.Units
         {
             this.task = task;
             task.Completed += ClearTask;
-            if (task is IDependsOnUnitAnimator dependsOnUnitAnimation) 
+            if (task is IDependsOnUnitAnimator dependsOnUnitAnimation)
                 dependsOnUnitAnimation.SetUnitAnimator(unitAnimator);
         }
 
