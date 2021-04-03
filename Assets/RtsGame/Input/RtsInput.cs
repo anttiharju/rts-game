@@ -1,6 +1,5 @@
 ﻿using System;
 using RtsGame.Units;
-using UnityEngine;
 
 namespace RtsGame.Input
 {
@@ -13,7 +12,7 @@ namespace RtsGame.Input
         {
             ActionOnUnit?.Invoke(unit);
         }
-        
+
         protected void OnSelectOnUnit(Unit unit)
         {
             SelectOnUnit?.Invoke(unit);

@@ -15,14 +15,14 @@ namespace RtsGame.Command
         [SerializeField] private RtsInput rtsInput;
         [SerializeField] private CommandExecutor commandExecutor;
 
-		public CommandManager(
-			Faction faction,
-			RtsInput rtsInput,
-			CommandExecutor commandExecutor)
-		{
-			this.faction = faction;
-			this.rtsInput = rtsInput;
-			this.commandExecutor = commandExecutor;
+        public CommandManager(
+            Faction faction,
+            RtsInput rtsInput,
+            CommandExecutor commandExecutor)
+        {
+            this.faction = faction;
+            this.rtsInput = rtsInput;
+            this.commandExecutor = commandExecutor;
 
             rtsInput.ActionOnUnit += OnActionOnUnit;
             rtsInput.SelectOnUnit += OnSelectUnit;
