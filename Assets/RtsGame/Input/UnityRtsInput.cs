@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using RtsGame.Units;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,12 +6,12 @@ namespace RtsGame.Input
 {
     public class UnityRtsInput : RtsInput
     {
-        [SerializeField] private PlayerInput playerInput;
-
         private int layerMaskUnit;
+        private PlayerInput playerInput;
 
-        void Awake()
+        public UnityRtsInput(PlayerInput playerInput)
         {
+            this.playerInput = playerInput;
             playerInput.actions["Action"].performed += ActionPerformed;
             playerInput.actions["Select"].performed += SelectPerformed;
             layerMaskUnit = 1 << LayerMask.NameToLayer("Unit");

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RtsGame.Input
 {
-    public abstract class RtsInput : MonoBehaviour
+    public abstract class RtsInput
     {
         public event Action<Unit> ActionOnUnit;
         public event Action<Unit> SelectOnUnit;

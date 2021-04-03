@@ -8,15 +8,22 @@ namespace RtsGame.Command
     /// <summary>
     /// Generates commands based on input and selected units.
     /// </summary>
-    public class CommandManager : MonoBehaviour
+    public class CommandManager
     {
         [SerializeField] private Faction faction;
-        [SerializeField] private List<Unit> selected;
+        [SerializeField] private List<Unit> selected = new List<Unit>();
         [SerializeField] private RtsInput rtsInput;
         [SerializeField] private CommandExecutor commandExecutor;
 
-        private void Awake()
-        {
+		public CommandManager(
+			Faction faction,
+			RtsInput rtsInput,
+			CommandExecutor commandExecutor)
+		{
+			this.faction = faction;
+			this.rtsInput = rtsInput;
+			this.commandExecutor = commandExecutor;
+
             rtsInput.ActionOnUnit += OnActionOnUnit;
             rtsInput.SelectOnUnit += OnSelectUnit;
         }

@@ -10,7 +10,7 @@ namespace RtsGame.Command
 			this.command = command;
 		}
 
-		private void Update()
+		public void Update()
 		{
 			if (command != null)
 			{
