@@ -15,14 +15,19 @@ namespace RtsGame.GameSystems
 
         private CommandManager commandManager;
         private CommandExecutorImpl commandExecutor;
+        private SelectionSystem selectionSystem;
+        private RtsInput rtsInput;
 
         private void Awake()
         {
+            rtsInput = new UnityRtsInput(playerInput);
+            selectionSystem = new SelectionSystem(rtsInput, playerFaction);
             commandExecutor = new CommandExecutorImpl();
             commandManager = new CommandManager(
                 playerFaction,
-                new UnityRtsInput(playerInput),
-                commandExecutor);
+                rtsInput,
+                commandExecutor,
+                selectionSystem);
         }
 
         private void Update()
