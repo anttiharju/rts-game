@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using RtsGame.Command;
+using RtsGame.GameSystems.Command;
 using RtsGame.Units;
 using UnityEditor.SceneManagement;
 using UnityEngine;

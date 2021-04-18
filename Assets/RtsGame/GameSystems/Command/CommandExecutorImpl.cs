@@ -1,4 +1,4 @@
-﻿namespace RtsGame.Command
+﻿namespace RtsGame.GameSystems.Command
 {
     public class CommandExecutorImpl : CommandExecutor
     {

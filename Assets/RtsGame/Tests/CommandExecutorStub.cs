@@ -1,5 +1,5 @@
-﻿using RtsGame.Command;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RtsGame.GameSystems.Command;
 
 namespace RtsGame.Tests
 {

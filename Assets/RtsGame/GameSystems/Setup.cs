@@ -1,14 +1,14 @@
-﻿using RtsGame.Command;
+﻿using RtsGame.GameSystems.Command;
 using RtsGame.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace RtsGame
+namespace RtsGame.GameSystems
 {
     /// <summary>
     /// Sets up the game system objects and passes Unity callbacks to them.
     /// </summary>
-    public class GameSystems : MonoBehaviour
+    public class Setup : MonoBehaviour
     {
         [SerializeField] private Faction playerFaction;
         [SerializeField] private PlayerInput playerInput;
