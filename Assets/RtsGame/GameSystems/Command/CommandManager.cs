@@ -3,7 +3,7 @@ using RtsGame.Input;
 using RtsGame.Units;
 using UnityEngine;
 
-namespace RtsGame.Command
+namespace RtsGame.GameSystems.Command
 {
     /// <summary>
     /// Generates commands based on input and selected units.
