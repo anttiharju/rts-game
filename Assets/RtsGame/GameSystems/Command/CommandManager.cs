@@ -9,13 +9,13 @@ namespace RtsGame.GameSystems.Command
     public class CommandManager
     {
         private Faction faction;
-        private CommandExecutor commandExecutor;
+        private ICommandExecutor commandExecutor;
         private SelectionSystem selectionSystem;
 
         public CommandManager(
             Faction faction,
-            RtsInput rtsInput,
-            CommandExecutor commandExecutor,
+            IRtsInput rtsInput,
+            ICommandExecutor commandExecutor,
             SelectionSystem selectionSystem)
         {
             this.faction = faction;

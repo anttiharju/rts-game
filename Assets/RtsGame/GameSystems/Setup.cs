@@ -14,15 +14,15 @@ namespace RtsGame.GameSystems
         [SerializeField] private PlayerInput playerInput;
 
         private CommandManager commandManager;
-        private CommandExecutorImpl commandExecutor;
+        private CommandExecutor commandExecutor;
         private SelectionSystem selectionSystem;
-        private RtsInput rtsInput;
+        private IRtsInput rtsInput;
 
         private void Awake()
         {
             rtsInput = new UnityRtsInput(playerInput);
             selectionSystem = new SelectionSystem(rtsInput, playerFaction);
-            commandExecutor = new CommandExecutorImpl();
+            commandExecutor = new CommandExecutor();
             commandManager = new CommandManager(
                 playerFaction,
                 rtsInput,

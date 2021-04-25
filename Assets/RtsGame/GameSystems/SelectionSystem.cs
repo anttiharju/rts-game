@@ -13,7 +13,7 @@ namespace RtsGame.GameSystems
         public List<Unit> Selected { get; } = new List<Unit>();
 
         public SelectionSystem(
-            RtsInput rtsInput,
+            IRtsInput rtsInput,
             Faction faction)
         {
             rtsInput.SelectOnUnit += OnSelectUnit;

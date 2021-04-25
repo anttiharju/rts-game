@@ -1,11 +1,15 @@
+using System;
 using RtsGame.Units;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace RtsGame.Input
 {
-    public class UnityRtsInput : RtsInput
+    public class UnityRtsInput : IRtsInput
     {
+        public event Action<Unit> ActionOnUnit;
+        public event Action<Unit> SelectOnUnit;
+
         private int layerMaskUnit;
         private PlayerInput playerInput;
 
@@ -22,7 +26,7 @@ namespace RtsGame.Input
             var clickedOn = GetClickedUnit();
             if (clickedOn != null)
             {
-                OnActionOnUnit(clickedOn);
+                ActionOnUnit?.Invoke(clickedOn);
             }
         }
 
@@ -31,7 +35,7 @@ namespace RtsGame.Input
             var clickedOn = GetClickedUnit();
             if (clickedOn != null)
             {
-                OnSelectOnUnit(clickedOn);
+                SelectOnUnit?.Invoke(clickedOn);
             }
         }
 
