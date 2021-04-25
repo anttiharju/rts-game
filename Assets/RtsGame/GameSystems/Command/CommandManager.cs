@@ -10,9 +10,8 @@ namespace RtsGame.GameSystems.Command
     /// </summary>
     public class CommandManager
     {
-        [SerializeField] private Faction faction;
-        [SerializeField] private RtsInput rtsInput;
-        [SerializeField] private CommandExecutor commandExecutor;
+        private Faction faction;
+        private CommandExecutor commandExecutor;
         private SelectionSystem selectionSystem;
 
         public CommandManager(
@@ -22,7 +21,6 @@ namespace RtsGame.GameSystems.Command
             SelectionSystem selectionSystem)
         {
             this.faction = faction;
-            this.rtsInput = rtsInput;
             this.commandExecutor = commandExecutor;
             this.selectionSystem = selectionSystem;
 

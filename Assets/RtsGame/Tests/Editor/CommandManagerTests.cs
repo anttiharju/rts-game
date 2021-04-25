@@ -19,7 +19,7 @@ namespace RtsGame.Tests.Editor
             var commandExecutorStub = new CommandExecutorStub();
             var rtsInputStub = new RtsInputStub();
             var selectionSystem = new SelectionSystem(rtsInputStub, friendlyFaction);
-            var commandManager = new CommandManager(friendlyFaction, rtsInputStub, commandExecutorStub, selectionSystem);
+            new CommandManager(friendlyFaction, rtsInputStub, commandExecutorStub, selectionSystem);
 
             var friendlyUnit = new GameObject().AddComponent<Unit>();
             var enemyUnit = new GameObject().AddComponent<Unit>();
