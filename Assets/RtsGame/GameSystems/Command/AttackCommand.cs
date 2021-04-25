@@ -5,18 +5,18 @@ namespace RtsGame.GameSystems.Command
 {
     public class AttackCommand : ICommand
     {
-        private readonly List<Unit> selected;
+        private readonly List<Unit> executors;
         private readonly Unit target;
 
-        public AttackCommand(List<Unit> selected, Unit target)
+        public AttackCommand(List<Unit> executors, Unit target)
         {
-            this.selected = selected;
+            this.executors = executors;
             this.target = target;
         }
 
         public void Execute()
         {
-            foreach (var unit in selected)
+            foreach (var unit in executors)
             {
                 unit.AddTask(new AttackTask(target));
             }
