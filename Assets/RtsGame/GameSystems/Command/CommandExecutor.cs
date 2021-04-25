@@ -1,7 +1,20 @@
-namespace RtsGame.GameSystems.Command
+﻿namespace RtsGame.GameSystems.Command
 {
-    public abstract class CommandExecutor
+    public class CommandExecutor : ICommandExecutor
     {
-        public abstract void AddCommand(ICommand command);
+        private ICommand command;
+        public void AddCommand(ICommand command)
+        {
+            this.command = command;
+        }
+
+        public void Update()
+        {
+            if (command != null)
+            {
+                command.Execute();
+                command = null;
+            }
+        }
     }
 }
