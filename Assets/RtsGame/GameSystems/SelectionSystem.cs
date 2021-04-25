@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using RtsGame.Input;
 using RtsGame.Units;
-using UnityEngine.Assertions;
 
 namespace RtsGame.GameSystems
 {
@@ -12,11 +10,7 @@ namespace RtsGame.GameSystems
     public class SelectionSystem
     {
         private readonly Faction faction;
-        private readonly Dictionary<Unit, List<Action>> unitSelectionListeners
-            = new Dictionary<Unit, List<Action>>();
-
         public List<Unit> Selected { get; } = new List<Unit>();
-
 
         public SelectionSystem(
             RtsInput rtsInput,
@@ -30,40 +24,24 @@ namespace RtsGame.GameSystems
         {
             if (unit.Faction == faction)
             {
-                Selected.Clear();
-                Selected.Add(unit);
-                NotifyListeners(unit);
+                UnselectCurrentlySelectedUnits();
+                SelectUnit(unit);
             }
         }
 
-        private void NotifyListeners(Unit unit)
+        private void UnselectCurrentlySelectedUnits()
         {
-            if (unitSelectionListeners.ContainsKey(unit))
+            foreach (var previouslySelected in Selected)
             {
-                var listeners = unitSelectionListeners[unit];
-                foreach (var listener in listeners)
-                {
-                    listener();
-                }
+                previouslySelected.Selected = false;
             }
+            Selected.Clear();
         }
 
-        public void AddUnitSelectionListener(Unit unit, Action selected)
+        private void SelectUnit(Unit unit)
         {
-            if (unitSelectionListeners[unit] == null)
-            {
-                unitSelectionListeners[unit] = new List<Action> {selected};
-            }
-            else
-            {
-                unitSelectionListeners[unit].Add(selected);
-            }
-        }
-
-        public void RemoveUnitSelectionListener(Unit unit, Action selected)
-        {
-            Assert.IsTrue(unitSelectionListeners[unit].Contains(selected));
-            unitSelectionListeners[unit].Remove(selected);
+            unit.Selected = true;
+            Selected.Add(unit);
         }
     }
 }

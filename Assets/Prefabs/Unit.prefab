@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4624020316230963912}
   - component: {fileID: 1149786013554547711}
   - component: {fileID: 3805325120497116621}
+  - component: {fileID: 1615367943369618510}
   m_Layer: 8
   m_Name: Unit
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MonoBehaviour:
   health: 100
   damage: 10
   faction: {fileID: 0}
+--- !u!114 &1615367943369618510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149786013554547704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94123ce435f33d3409df2ab6c935b526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 3805325120497116621}
+  selectionIndicator: {fileID: 146528689425193563}
 --- !u!1 &4807091783435834135
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +247,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d0654cbad6bda54799cb30d9e085b2c, type: 3}
+--- !u!1 &146528689425193563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4685204012243495172, guid: 7d0654cbad6bda54799cb30d9e085b2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4831697370663465823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4421948321519328765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9101855906502471330, guid: 7d0654cbad6bda54799cb30d9e085b2c,

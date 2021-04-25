@@ -15,12 +15,27 @@ namespace RtsGame.Units
         private Damager damager;
         private UnitAnimator unitAnimator;
         private IUnitTask task;
+        private bool selected;
 
         public Faction Faction
         {
             get => faction;
             set => faction = value;
         }
+
+        public bool Selected
+        {
+            get => selected;
+            set
+            {
+                if (selected == value) return;
+
+                selected = value;
+                OnSelectionChanged?.Invoke(value);
+            }
+        }
+
+        public event Action<bool> OnSelectionChanged;
 
         private void Awake()
         {
