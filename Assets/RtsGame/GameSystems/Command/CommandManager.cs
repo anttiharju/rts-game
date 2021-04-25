@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using RtsGame.Input;
 using RtsGame.Units;
-using UnityEngine;
 
 namespace RtsGame.GameSystems.Command
 {
@@ -30,7 +28,9 @@ namespace RtsGame.GameSystems.Command
         private void OnActionOnUnit(Unit target)
         {
             if (target.Faction != faction)
+            {
                 commandExecutor.AddCommand(new AttackCommand(selectionSystem.Selected, target));
+            }
         }
     }
 }
