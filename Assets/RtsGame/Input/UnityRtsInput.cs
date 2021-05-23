@@ -12,13 +12,15 @@ namespace RtsGame.Input
 
         private int layerMaskUnit;
         private PlayerInput playerInput;
+        private RectangleRenderer rectangleRenderer;
 
-        public UnityRtsInput(PlayerInput playerInput)
+        public UnityRtsInput(PlayerInput playerInput, RectangleRenderer rectangleRenderer)
         {
             this.playerInput = playerInput;
             playerInput.actions["Action"].performed += ActionPerformed;
             playerInput.actions["Select"].performed += SelectPerformed;
             layerMaskUnit = 1 << LayerMask.NameToLayer("Unit");
+            this.rectangleRenderer = rectangleRenderer;
         }
 
         private void ActionPerformed(InputAction.CallbackContext obj)
