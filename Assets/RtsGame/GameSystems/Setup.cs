@@ -12,6 +12,7 @@ namespace RtsGame.GameSystems
     {
         [SerializeField] private Faction playerFaction;
         [SerializeField] private PlayerInput playerInput;
+        [SerializeField] private RectangleRenderer rectangleRenderer;
 
         private CommandManager commandManager;
         private CommandExecutor commandExecutor;
@@ -20,7 +21,7 @@ namespace RtsGame.GameSystems
 
         private void Awake()
         {
-            rtsInput = new UnityRtsInput(playerInput);
+            rtsInput = new UnityRtsInput(playerInput, rectangleRenderer);
             selectionSystem = new SelectionSystem(rtsInput, playerFaction);
             commandExecutor = new CommandExecutor();
             commandManager = new CommandManager(
