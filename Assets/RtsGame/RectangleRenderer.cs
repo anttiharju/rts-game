@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace RtsGame
@@ -8,15 +9,24 @@ namespace RtsGame
     {
         [SerializeField] private LineRenderer lr;
         [SerializeField] private float y;
-        [SerializeField] private Vector3 lowerLeft;
-        [SerializeField] private Vector3 upperRight;
 
         void Start()
         {
+            lr.enabled = false;
             lr.positionCount = 5;
         }
 
-        void Update()
+        public void Show()
+        {
+            lr.enabled = true;
+        }
+
+        public void Hide()
+        {
+            lr.enabled = false;
+        }
+
+        public void SetCorners(Vector3 lowerLeft, Vector3 upperRight)
         {
             lowerLeft.y = y;
             upperRight.y = y;
