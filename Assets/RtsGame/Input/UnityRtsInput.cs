@@ -17,6 +17,9 @@ namespace RtsGame.Input
         public UnityRtsInput(PlayerInput playerInput, RectangleRenderer rectangleRenderer)
         {
             this.playerInput = playerInput;
+            playerInput.actions["Action"].started += (x) => Debug.Log("Action started");
+            playerInput.actions["Action"].performed += (x) => Debug.Log("Action performed");
+            playerInput.actions["Action"].canceled += (x) => Debug.Log("Action canceled");
             playerInput.actions["Action"].performed += ActionPerformed;
             playerInput.actions["Select"].performed += SelectPerformed;
             layerMaskUnit = 1 << LayerMask.NameToLayer("Unit");
