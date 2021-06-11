@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RtsGame.Utilities
+namespace Utilities
 {
     public class CoroutineRunner : MonoBehaviour
     {
