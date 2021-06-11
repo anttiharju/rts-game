@@ -3,6 +3,7 @@ using RtsGame.GameSystems.Command;
 using RtsGame.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utilities;
 
 namespace RtsGame.GameSystems
 {
@@ -19,13 +20,12 @@ namespace RtsGame.GameSystems
         private CommandExecutor commandExecutor;
         private SelectionSystem selectionSystem;
         private IRtsInput input;
-        private RtsInput rtsInput;
-
+        private UnityInputWrapper unityInputWrapper;
 
         private void Awake()
         {
-            rtsInput = new RtsInput(playerInput);
-            input = new UnityRtsInput(rtsInput, rectangleRenderer);
+            unityInputWrapper = new UnityInputWrapper(playerInput);
+            input = new RtsInput(unityInputWrapper, rectangleRenderer);
             selectionSystem = new SelectionSystem(input, playerFaction);
             commandExecutor = new CommandExecutor();
             commandManager = new CommandManager(
@@ -42,7 +42,7 @@ namespace RtsGame.GameSystems
 
         private void OnDestroy()
         {
-            rtsInput.Dispose();
+            unityInputWrapper.Dispose();
         }
     }
 }

@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Action",
+                    "name": "Right Mouse Button",
                     "type": "Button",
                     "id": "3d995c71-15cb-4250-8481-8f4187df09b2",
                     "expectedControlType": "Button",
@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Select",
+                    "name": "Left Mouse Button",
                     "type": "Button",
                     "id": "32eeb3bb-3b66-42f7-9f83-3af27e8b6f6b",
                     "expectedControlType": "Button",
@@ -238,18 +238,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d4998f73-b7e4-4f5a-ad00-7766be8c468a",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Select",
+                    "action": "Right Mouse Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -261,6 +250,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Select Multiple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4998f73-b7e4-4f5a-ad00-7766be8c468a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Left Mouse Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
