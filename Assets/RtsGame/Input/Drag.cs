@@ -7,11 +7,12 @@ using Vector2 = UnityEngine.Vector2;
 
 namespace RtsGame.Input
 {
-    public class RtsInput
+    public class RtsInput : IDisposable
     {
         public event Action<Vector2> Select;
         public event Action<Vector2> DragStart;
         public event Action<Vector2> DragEnd;
+        public event Action<Vector2> Action;
 
         private readonly PlayerInput playerInput;
         private const float DragTriggerDistance = 100;
@@ -25,6 +26,12 @@ namespace RtsGame.Input
             this.playerInput = playerInput;
             playerInput.actions["Select"].started += OnMouseDown;
             playerInput.actions["Select"].canceled += OnMouseUp;
+            playerInput.actions["Action"].performed += ActionPerformed;
+        }
+
+        private void ActionPerformed(InputAction.CallbackContext obj)
+        {
+            Action?.Invoke(GetMousePosition());
         }
 
         private void OnMouseDown(InputAction.CallbackContext obj)
@@ -60,6 +67,13 @@ namespace RtsGame.Input
         private Vector2 GetMousePosition()
         {
             return playerInput.actions["Mouse Position"].ReadValue<Vector2>();
+        }
+
+        public void Dispose()
+        {
+            playerInput.actions["Select"].started -= OnMouseDown;
+            playerInput.actions["Select"].canceled -= OnMouseUp;
+            playerInput.actions["Action"].performed -= ActionPerformed;
         }
     }
 }

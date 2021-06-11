@@ -1,7 +1,6 @@
 using System;
 using RtsGame.Units;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace RtsGame.Input
 {
@@ -11,43 +10,39 @@ namespace RtsGame.Input
         public event Action<Unit> SelectOnUnit;
 
         private int layerMaskUnit;
-        private PlayerInput playerInput;
+        private RtsInput input;
         private RectangleRenderer rectangleRenderer;
 
-        public UnityRtsInput(PlayerInput playerInput, RectangleRenderer rectangleRenderer)
+        public UnityRtsInput(RtsInput input, RectangleRenderer rectangleRenderer)
         {
-            this.playerInput = playerInput;
-            playerInput.actions["Action"].started += (x) => Debug.Log("Action started");
-            playerInput.actions["Action"].performed += (x) => Debug.Log("Action performed");
-            playerInput.actions["Action"].canceled += (x) => Debug.Log("Action canceled");
-            playerInput.actions["Action"].performed += ActionPerformed;
-            playerInput.actions["Select"].performed += SelectPerformed;
+            this.input = input;
+            input.Action += ActionPerformed;
+            input.Select += SelectPerformed;
             layerMaskUnit = 1 << LayerMask.NameToLayer("Unit");
             this.rectangleRenderer = rectangleRenderer;
         }
 
-        private void ActionPerformed(InputAction.CallbackContext obj)
+        private void ActionPerformed(Vector2 screenPosition)
         {
-            var clickedOn = GetClickedUnit();
+            var clickedOn = GetClickedUnit(screenPosition);
             if (clickedOn != null)
             {
                 ActionOnUnit?.Invoke(clickedOn);
             }
         }
 
-        private void SelectPerformed(InputAction.CallbackContext obj)
+        private void SelectPerformed(Vector2 screenPosition)
         {
-            var clickedOn = GetClickedUnit();
+            var clickedOn = GetClickedUnit(screenPosition);
             if (clickedOn != null)
             {
                 SelectOnUnit?.Invoke(clickedOn);
             }
         }
 
-        private Unit GetClickedUnit()
+        private Unit GetClickedUnit(Vector2 screenPosition)
         {
-            var mousePosition = playerInput.actions["Mouse Position"].ReadValue<Vector2>();
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo, 100, layerMaskUnit))
             {
                 return hitInfo.collider.gameObject.GetComponent<Unit>();
