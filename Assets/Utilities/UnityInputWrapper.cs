@@ -58,11 +58,14 @@ namespace Utilities
 
         private IEnumerator Update()
         {
-            yield return null;
-            if (Vector2.Distance(startPosition, GetMousePosition()) > DragTriggerDistance)
+            while (true)
             {
-                isDrag = true;
-                LeftMouseButtonDragStart?.Invoke(startPosition);
+                yield return null;
+                if (Vector2.Distance(startPosition, GetMousePosition()) > DragTriggerDistance)
+                {
+                    isDrag = true;
+                    LeftMouseButtonDragStart?.Invoke(startPosition);
+                }
             }
         }
 
