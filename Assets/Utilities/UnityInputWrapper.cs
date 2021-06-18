@@ -1,8 +1,7 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Vector2 = UnityEngine.Vector2;
 
 namespace Utilities
 {
@@ -13,14 +12,15 @@ namespace Utilities
     {
         public event Action<Vector2> LeftMouseButtonClicked;
         public event Action<Vector2> RightMouseButtonClicked;
-        public event Action<Vector2> LeftMouseButtonDragStart;
-        public event Action<Vector2> LeftMouseButtonDragEnd;
+        public event Action<Vector2> LeftMouseButtonDragBegin;
+        public event Action<Vector2> LeftMouseButtonDragUpdate;
+        public event Action<Vector2> LeftMouseButtonDragStop;
 
         private readonly PlayerInput playerInput;
         private const float DragTriggerDistance = 100;
 
         private Coroutine updateCoroutine;
-        private Vector2 startPosition;
+        private Vector2 clickStartPosition;
         private bool isDrag;
 
         public UnityInputWrapper(PlayerInput playerInput)
@@ -38,7 +38,7 @@ namespace Utilities
 
         private void OnLeftMouseButtonDown(InputAction.CallbackContext obj)
         {
-            startPosition = GetMousePosition();
+            clickStartPosition = GetMousePosition();
             updateCoroutine = CoroutineRunner.Instance.StartCoroutine(Update());
         }
 
@@ -47,11 +47,11 @@ namespace Utilities
             CoroutineRunner.Instance.StopCoroutine(updateCoroutine);
             if (isDrag)
             {
-                LeftMouseButtonDragEnd?.Invoke(GetMousePosition());
+                LeftMouseButtonDragStop?.Invoke(GetMousePosition());
             }
             else
             {
-                LeftMouseButtonClicked?.Invoke(startPosition);
+                LeftMouseButtonClicked?.Invoke(clickStartPosition);
             }
             isDrag = false;
         }
@@ -61,12 +61,20 @@ namespace Utilities
             while (true)
             {
                 yield return null;
-                if (Vector2.Distance(startPosition, GetMousePosition()) > DragTriggerDistance)
+                var mousePosition = GetMousePosition();
+
+                if (isDrag)
+                {
+                    LeftMouseButtonDragUpdate?.Invoke(mousePosition);
+                }
+                else if (Vector2.Distance(clickStartPosition, mousePosition) > DragTriggerDistance)
                 {
                     isDrag = true;
-                    LeftMouseButtonDragStart?.Invoke(startPosition);
+                    LeftMouseButtonDragBegin?.Invoke(clickStartPosition);
                 }
             }
+            // Iterator should keep update running indefinitely
+            // ReSharper disable once IteratorNeverReturns
         }
 
         private Vector2 GetMousePosition()
